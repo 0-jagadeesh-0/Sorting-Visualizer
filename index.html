@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="select-container" >
+        <div class="main" >
+            <h1>Sorting Visualizer</h1>
+        </div>
+        <div>
+            <p>Sort using different Algorithms.</p>
+        </div>
+        <div class="selection-container" >
+            <div>
+                <div  style="font-size:0.8rem ;text-align: center;padding: 2px 0;" >Array Size</div>
+                <div class="array-size" >
+       
+                    <input id="size"  type="range" />
+                    </div>
+            </div>
+    
+    
+    <button id="randomize">Randomize</button>
+        </div>
+    </div>
+    
+
+    <div id="visualizer" class="visualizer" >
+         <div id="array" >
+
+         </div>
+         <div class="sorting-algo" >
+            <div class="sort-btns">
+                <div>
+                    <button id="algo-btn" class="algo-btn" >
+                        Bubble Sort
+                    </button>
+                    <button id="algo-btn" class="algo-btn" >
+                        Selection Sort
+                    </button>
+                    <button id="algo-btn" class="algo-btn">
+                        Insertion Sort
+                    </button>
+                </div>
+                <div>
+                    <button id="algo-btn" class="algo-btn">
+                        Merge Sort
+                    </button>
+                    <button id="algo-btn" class="algo-btn">
+                        Quick Sort
+                    </button>
+                    <button id="algo-btn" class="algo-btn">
+                        Heap Sort
+                    </button>
+                </div>
+            </div>
+            <button id="sort" >Sort</button>
+           
+         </div>
+         
+    </div>
+
+
+
+
+    <script src="index.js"></script>
+    <script src="./Algorithms/bubbleSort.js"></script>
+    <script src="./Algorithms/selectionSort.js"></script>
+    <script src="./Algorithms/insertionSort.js"></script>
+    <script src="./Algorithms/mergeSort.js"></script>
+    <script src="./Algorithms/quickSort.js"></script>
+</body>
+</html>
