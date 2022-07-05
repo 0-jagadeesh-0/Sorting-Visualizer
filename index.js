@@ -51,7 +51,7 @@ let createArrayBars = () => {
         ele.style.width = bar_width + "px";
         ele.id = "bar" + i;
         ele.classList.add("bar");
-        ele.style.height = `${val * 1.5}px`;
+        ele.style.height = `${val}px`;
         ele.style.backgroundColor = unsorted_array_color;
         ele.style.marginLeft = "2px";
         ele.style.marginRight = "2px";
