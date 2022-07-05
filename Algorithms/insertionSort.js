@@ -4,24 +4,20 @@ let insertionSort = async () => {
     let i, j, key;
     for (j = 1; j < len; j++) {
         i = j - 1;
-        await sleep(delay);
-        bars[j].style.backgroundColor = selected_color;
+        setBarColor(i, selected_color);
         key = arr[j];
-
-
         await sleep(delay);
         while (i >= 0 && key < arr[i]) {
-            await sleep(delay);
-            bars[i].style.backgroundColor = compare_color;
-            bars[i + 1].style.backgroundColor = selected_color;
+            setBarColor(i, compare_color);
+            setBarColor(i + 1, selected_color);
             await sleep(delay);
             swap(i, i + 1, bars);
-
-            bars[i].style.backgroundColor = sorted_color;
-            bars[i + 1].style.backgroundColor = sorted_color;
+            setBarColor(i, sorted_color);
+            setBarColor(i + 1, sorted_color);
+            await sleep(delay);
             i--;
 
         }
-        bars[j].style.backgroundColor = sorted_color;
+        setBarColor(j, sorted_color);
     }
 }

@@ -1,5 +1,5 @@
 
-let merge = async (start, mid, end, bars) => {
+let merge = async (start, mid, end) => {
     await sleep(delay)
     let leftSize = mid - start + 1;
     let rightSize = end - mid;
@@ -7,13 +7,12 @@ let merge = async (start, mid, end, bars) => {
     let rightSubarray = [];
     for (let p = 0; p < leftSize; p++) {
         leftSubarray.push(arr[start + p])
-
-        bars[start + p].style.backgroundColor = "crimson";
+        setBarColor(start + p, "crimson");
     }
     for (let p = 0; p < rightSize; p++) {
 
         rightSubarray.push(arr[mid + 1 + p]);
-        bars[mid + 1 + p].style.backgroundColor = "gold";
+        setBarColor(mid + 1 + p, "yellow");
     }
     let i = 0;
     let j = 0;
@@ -25,14 +24,14 @@ let merge = async (start, mid, end, bars) => {
         if (leftSubarray[i] < rightSubarray[j]) {
             await sleep(delay);
             arr[k] = leftSubarray[i++];
-            bars[k].style.height = `${arr[k]}px`
-            bars[k].style.backgroundColor = "blue"
+            setBarHeight(k, arr[k]);
+            setBarColor(k, "deepblue");
         }
         else {
             await sleep(delay);
             arr[k] = rightSubarray[j++];
-            bars[k].style.height = `${arr[k]}px`
-            bars[k].style.backgroundColor = "blue"
+            setBarHeight(k, arr[k]);
+            setBarColor(k, "deepblue");
         }
         k++;
 
@@ -41,42 +40,41 @@ let merge = async (start, mid, end, bars) => {
         await sleep(delay);
 
         arr[k] = leftSubarray[i++];
-        bars[k].style.height = `${arr[k]}px`
-        bars[k].style.backgroundColor = "blue"
+        setBarHeight(k, arr[k]);
+        setBarColor(k, "deepblue");
         k++;
     }
     while (j < rightSize) {
         await sleep(delay);
         arr[k] = rightSubarray[j++];
-        bars[k].style.height = `${arr[k]}px`
-        bars[k].style.backgroundColor = "blue"
+        setBarHeight(k, arr[k]);
+        setBarColor(k, "deepblue");
         k++;
     }
     await sleep(delay);
     if (start == 0 && end == len - 1) {
         for (let m = start; m <= end; m++) {
             await sleep(delay);
-            bars[m].style.backgroundColor = sorted_color;
+            setBarColor(m, sorted_color);
         }
     }
     else {
         for (let m = start; m <= end; m++) {
             await sleep(delay);
-            bars[m].style.backgroundColor = unsorted_array_color;
+            setBarColor(m, unsorted_array_color);
         }
     }
 }
 
 
 
-let mergeSort = async (start, end, bars) => {
-    console.log(arr);
+let mergeSort = async (start, end) => {
 
     if (start < end) {
         let mid = Math.floor(start + (end - start) / 2);
-        await mergeSort(start, mid, bars);
-        await mergeSort(mid + 1, end, bars);
-        await merge(start, mid, end, bars);
+        await mergeSort(start, mid);
+        await mergeSort(mid + 1, end);
+        await merge(start, mid, end);
     }
-    console.log(arr);
+
 }
