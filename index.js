@@ -173,7 +173,7 @@ sort_btn.addEventListener("click", async () => {
     }
     else if (selected_algo === "Selection Sort") {
         disableOthers();
-        await selectionSort()
+        await selectionSort();
     }
     else if (selected_algo === "Insertion Sort") {
         disableOthers();
@@ -188,7 +188,8 @@ sort_btn.addEventListener("click", async () => {
         await quickSort(0, len - 1);
     }
     else if (selected_algo === "Heap Sort") {
-
+        disableOthers();
+        await heapSort();
     }
     else {
         disableOthers();
